@@ -1,0 +1,83 @@
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                       http://maven.apache.org/xsd/settings-1.0.0.xsd">
+<localRepository>/u/glee/tmp/mvn/.m2/repository</localRepository>
+
+<servers>
+    <server>
+        <id>proofpoint-yum-snapshots</id>
+        <username>deployment</username>
+		<password>{orAo/uTtefkHKBrJtHu22NZB+kur63ijOcHtt7OYwmk=}</password>
+    </server>
+    <server>
+        <id>proofpoint</id>
+        <username>pupload</username>
+        <password>{5y8LUaE1aiMH+q1vWxFHUCBDH7bH5sBYMCMHI4/qV64=}</password>
+    </server>
+    <server>
+        <id>proofpoint-snapshots</id>
+        <username>pupload</username>
+        <password>{5y8LUaE1aiMH+q1vWxFHUCBDH7bH5sBYMCMHI4/qV64=}</password>
+    </server>
+    <server>
+        <id>thirdparty</id>
+        <username>pupload</username>
+        <password>{5y8LUaE1aiMH+q1vWxFHUCBDH7bH5sBYMCMHI4/qV64=}</password>
+    </server>
+
+</servers>
+
+<profiles>
+    <profile>
+        <id>proofpoint</id>
+        <activation>
+            <activeByDefault>true</activeByDefault>
+        </activation>
+        <repositories>
+            <repository>
+       		<id>proofpoint</id>
+       		<name>Proofpoint Dev</name>
+       		<url>https://maven.us.proofpoint.com/nexus/content/groups/proofpoint-dev</url>
+               <layout>default</layout>
+            </repository>
+
+            <repository>
+       		<id>proofpoint-snapshots</id>
+       		<name>Proofpoint Snapshots</name>
+       		<url>https://maven.us.proofpoint.com/nexus/content/repositories/proofpoint-eng-snapshots</url>
+               <layout>default</layout>
+            </repository>
+        </repositories>
+       <pluginRepositories>
+           <pluginRepository>
+               <id>proofpoint-dev</id>
+               <name>Proofpoint dev repo</name>
+               <url>https://maven.us.proofpoint.com/nexus/content/groups/proofpoint-dev</url>
+               <layout>default</layout>
+           </pluginRepository>
+ 
+           <pluginRepository>
+               <id>proofpoint-eng-snapshots</id>
+               <name>Proofpoint snapshots repo</name>
+               <url>
+                   https://maven.us.proofpoint.com/nexus/content/repositories/proofpoint-eng-snapshots
+               </url>
+               <layout>default</layout>
+               <snapshots>
+                   <enabled>true</enabled>
+               </snapshots>
+           </pluginRepository>
+       </pluginRepositories>
+    </profile>
+</profiles>
+
+     <mirrors>
+       <mirror>
+         <id>proofpoint</id>
+         <name>proofpoint_external</name>
+         <url>https://maven.us.proofpoint.com/nexus/content/groups/proofpoint-dev</url>
+         <mirrorOf>external:*</mirrorOf>
+       </mirror>
+     </mirrors>
+</settings>
